@@ -58,5 +58,20 @@ jobs:
       - name: Deploy with Docker Compose
         run: |
           docker compose pull
-          docker compose up -d --remove-orphans
+          docker compose up -d --build --remove-orphans
           docker image prune -f --filter "until=24h"  # Clean old images
+
+      - name: Output Access Links
+        run: |
+          cat << 'EOF' >> "$GITHUB_STEP_SUMMARY"
+
+          ### Service Access Links
+
+          | Service       | URL                           |
+          |---------------|-------------------------------|
+          | **Frontend**  | http://localhost:3000         |
+          | **Backend API** | http://localhost:8000/api/hello |
+
+          > **Note:** These localhost links only work via SSH tunnel to the runner (or when running locally).
+
+          EOF
