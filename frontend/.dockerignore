@@ -1,0 +1,10 @@
+node_modules
+dist
+.git
+.gitignore
+Dockerfile
+nginx.conf          # or wherever you put it
+.env
+.env.*
+.vite
+coverage

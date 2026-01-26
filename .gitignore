@@ -10,9 +10,11 @@ db.sqlite3
 .env
 
 # Node / React
-node_modules/
-dist/
-dist-ssr/
+*.vite/
+*.env.local
+*node_modules/
+*dist/
+*dist-ssr/
 *.local
 .npm
 .eslintcache

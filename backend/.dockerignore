@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+.env
+db.sqlite3
+db.sqlite3-journal
+media/
+*.log
+.git
+.gitignore
+README.md               # optional – not needed in image
+Dockerfile
+docker-compose.yml
+node_modules/           # if any frontend stuff leaked in

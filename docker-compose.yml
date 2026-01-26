@@ -1,0 +1,23 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - static_volume:/app/staticfiles   # Matches STATIC_ROOT
+    environment:
+      - DEBUG=0
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:80"           # NGINX on 80 inside container
+    volumes:
+      - static_volume:/usr/share/nginx/html/static
+    depends_on:
+      - backend
+    environment:
+      - VITE_API_URL=http://backend:8000   # Use service name in compose network
+volumes:
+  static_volume:   # persistent across restarts
