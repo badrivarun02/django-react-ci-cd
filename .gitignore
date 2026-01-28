@@ -28,3 +28,9 @@ db.sqlite3
 # OS
 .DS_Store
 Thumbs.db
+
+#Terraform
+*terraform.tfvars
+*.pem
+*.terraform*
+terraform.tfstate*

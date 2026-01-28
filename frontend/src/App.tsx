@@ -3,17 +3,20 @@ import axios from 'axios'
 import { Server, Globe, RefreshCw, CheckCircle2 } from 'lucide-react'
 import './App.css'
 
+
 function App() {
   const [message, setMessage] = useState<string>('')
   const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<string | null>(null)
 
+   
   const fetchData = async () => {
     setLoading(true)
     setError(null)
     try {
-      const response = await axios.get('http://localhost:8000/api/hello/')
+      const response = await axios.get('/api/hello/')
       setMessage(response.data.message)
+      console.log('Success! API response:', response.data)  // ← add this: check console
     } catch (err) {
       console.error(err)
       setError('Failed to connect to the backend. Please ensure the Django server is running.')

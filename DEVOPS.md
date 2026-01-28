@@ -109,4 +109,29 @@ Frontend fetches "Hello World from Django!" from backend automatically via Axios
 - Add more via `.env` file later (e.g. for secrets) – not committed to git
 
 
+## Phase 2: CI/CD Pipeline without cloud
 
+**Workflow file**: `.github/workflows/ci-cd.yml`
+
+**Triggers**: Push to `main` branch
+
+**Pipeline Flow**:
+1. Build multi-stage Docker images (backend & frontend)
+2. Push to Docker Hub (`yourusername/hello-django-backend:latest` & `...-frontend:latest`)
+3. Deploy automatically to local machine:
+   - Uses **self-hosted GitHub Actions runner** (my laptop as server)
+   - Pulls new images + restarts with `docker compose up -d`
+
+**Secrets used**:
+- `DOCKER_USERNAME`
+- `DOCKER_PASSWORD` (Docker Hub access token)
+
+**Self-hosted Runner Setup**:
+- Registered via repo Settings → Actions → Runners → New self-hosted runner
+- Runs persistently on local machine (nohup or service)
+- Job uses `runs-on: self-hosted`
+
+**Live Verification**:
+- Push to main → Actions run → app at localhost:3000 updates automatically
+
+**Note**: Self-hosted chosen as standard fallback (no cloud billing needed). In real prod, would use Railway/Render or cloud provider for true remote auto-deploy.
