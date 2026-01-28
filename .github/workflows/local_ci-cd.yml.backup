@@ -70,7 +70,7 @@ jobs:
           | Service       | URL                           |
           |---------------|-------------------------------|
           | **Frontend**  | http://localhost:80        |
-          | **Backend API** | http://localhost:8000/api/hello |
+          
 
           > **Note:** These localhost links only work via SSH tunnel to the runner (or when running locally).
 
