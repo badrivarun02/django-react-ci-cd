@@ -30,7 +30,7 @@ db.sqlite3
 Thumbs.db
 
 #Terraform
-*terraform.tfvars
+
 *.pem
 *.terraform*
 terraform.tfstate*
