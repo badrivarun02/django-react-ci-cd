@@ -64,7 +64,7 @@ module "sg" {
       to_port     = 22
       protocol    = "tcp"
       description = "SSH access"
-      cidr_blocks = "49.43.230.35/32" # or your IP for better security
+      cidr_blocks = ["${var.My_ip}/32"] # or your IP for better security
     },
 
     # Public ports – only these should be open to the world
@@ -104,6 +104,8 @@ module "ec2" {
   user_data = templatefile("${path.module}/user_data.sh.tpl", {
     repo_url    = var.repo_url
     repo_branch = var.repo_branch
+    DOCKER_USERNAME = var.docker_username
+    DOCKER_TOKEN = var.docker_token
   })
 
   tags = {

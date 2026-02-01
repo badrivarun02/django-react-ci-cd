@@ -211,6 +211,10 @@ cd terraform
 terraform destroy -auto-approve
 ```
 
+### **Technical/Concise**
+- IP Whitelisting: Update the inbound rules with my system's public IP in .tfvars files.
+- Runner Status: Start the GitHub Action svc/run.sh on the self-hosted host.
+
 **Security Notes**
 - Restrict SSH to your IP only
 - Use HTTPS in prod (add certbot/Let's Encrypt in user_data)

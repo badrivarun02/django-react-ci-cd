@@ -9,3 +9,5 @@ project_name = "hello-world-app" # used for naming resources
 repo_url = "https://github.com/badrivarun02/django-react-ci-cd.git" # ← your real GitHub repo URL
 
 repo_branch = "main" # or whatever branch you use
+
+My_ip = "49.43.227.238" # Replace with your actual public IP

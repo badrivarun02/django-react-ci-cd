@@ -27,3 +27,11 @@ variable "repo_branch" {
   type        = string
   default     = "main"
 }
+
+variable "My_ip" {
+  description = "My public IP for security group whitelisting"
+  type        = string
+}
+
+variable "docker_username" { type = string }
+variable "docker_token" { type = string }
