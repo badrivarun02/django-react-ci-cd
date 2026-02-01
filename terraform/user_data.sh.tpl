@@ -46,8 +46,9 @@ git clone ${repo_url} /home/ubuntu/app
 cd /home/ubuntu/app
 
 # Run compose as the ubuntu user
+echo "$DOCKER_TOKEN" | docker login -u "$DOCKER_USERNAME" --password-stdin
 sudo -u ubuntu docker compose pull || true
-sudo -u ubuntu docker compose up -d --build --remove-orphans
+sudo -u ubuntu docker compose up -d --remove-orphans
 
 echo "Deployment done at $(date)" > /home/ubuntu/deploy.log
 docker ps >> /home/ubuntu/deploy.log
