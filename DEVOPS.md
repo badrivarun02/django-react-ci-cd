@@ -6,20 +6,21 @@
 
 ## 1. **Project Structure** (Relevant to Docker)
 
+#### Project_root_dir/backend
 * **`backend/`**: Contains the Django application.
 * **`Dockerfile`**: A multi-stage build for the Django server using Gunicorn.
 * **`requirements.txt`**: Lists Python dependencies.
 * **`.dockerignore`**: Prevents unnecessary files from being sent to the Docker image.
 * **App Files**: Includes `manage.py`, project configuration, and core logic.
 
-
+#### Project_root_dir/frontend:
 * **`frontend/`**: Contains the React/Vite application.
 * **`Dockerfile`**: A multi-stage build that compiles Node.js code and serves it via NGINX.
 * **`nginx.conf`**: Configuration for NGINX to handle Single Page Application (SPA) routing.
 * **`.dockerignore`**: Excludes `node_modules` and local builds from Docker.
 * **App Files**: Includes source code, dependencies, and build settings.
 
-
+#### Project_root_dir/:
 * **`docker-compose.yml`**: The main configuration file to run and connect both the backend and frontend services.
 * **`.gitignore`**: Ensures temporary files like virtual environments and build folders are not tracked by Git.
 
@@ -64,6 +65,7 @@ From project root:
 
 1. **Build & Start** (Local Test) 
    ```bash
+   cd django-react-ci-cd
    docker compose up --build 
    ```
    - First time: 3–8 minutes (downloads layers, builds images)  
